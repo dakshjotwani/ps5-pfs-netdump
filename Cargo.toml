@@ -1,0 +1,21 @@
+[package]
+name = "ps5-pfs-netdump"
+version = "0.3.0"
+edition = "2024"
+license = "GPL-3.0-or-later"
+description = "Stream a running PS5 game over FTP straight into a ShadowMountPlus .ffpkg image"
+publish = false
+
+[[bin]]
+name = "ps5-pfs-netdump"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+serde_json = "1.0"
+# PS5 Dump Forge (GPL-3.0-or-later) with the `data_order` patch: its convert pipeline
+# (fake-signing, backport handling, the UFS2 writer and verification) builds the image.
+ps5-dump-forge-core = { git = "https://github.com/dakshjotwani/ps5-dump-forge", rev = "9cddf97" }
+
+[profile.release]
+debug = 1

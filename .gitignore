@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.part
+.ps5-pfs-netdump.json
+*-app0/
+*.dat
+*.bin
+!tests/**
+.DS_Store
+target/
+*.ffpkg
